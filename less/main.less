@@ -35,10 +35,6 @@
   }
 }
 
-* {
-  box-sizing: border-box;
-}
-
 .Cols ( @colspan : @default_colspan; @total_cols : @default_total-cols; @padding: @default_padding; @gutter: @default_gutter; @edge: false; @margin-top : @default_margin-top; @margin-bottom : @default_margin-bottom; ) {
   @total_gutter: (@total_cols - 1) * @gutter;
   @spanned_gutters: (@colspan - 1) * @gutter;
@@ -56,42 +52,80 @@
   margin: @margin-top 0 @margin-bottom 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: @background;
+  color: @primary;
+}
+
+h1 {
+  color: @brand;
+}
+
 header,
 footer {
-  .Row (
-    @padding: 20 * @toRems;
-    @margin: .5 * @toRems auto;
-  );
-  background-color: @background;
-  min-height: 200 * @toRems;
+  .Row ( @padding: 20 * @toRems; @margin: 10 * @toRems auto; );
+  background-color: darken(@background, .5%);;
+  min-height: 100 * @toRems;
+}
+
+footer .credits {
+  .Cols ( @colspan: 1; @total_cols: 2; @padding: 0 20 * @toRems 20 * @toRems 0; @gutter: 1; );
+  text-align: center;
+  padding: 0 150 * @toRems 0 150 * @toRems;
+}
+
+footer .links {
+  .Cols ( @colspan: 1; @total_cols: 2; @padding: 0 20 * @toRems 20 * @toRems 0; @gutter: 1; @edge: true; );
+  ul {
+    padding: 0;
+  }
+  li {
+    line-height: 1.5em;
+    list-style: none;
+    text-align: center;
+  }
+  a {
+    color: @highlight;
+    font-size: 22 * @toEms;
+  }
+}
+
+p.disclaimer {
+  .Cols ( @colspan: 1; @total_cols: 1; @padding: 0 20 * @toRems 20 * @toRems 0; @gutter: 2; @margin-top: 30 * @toRems; );
+  padding: 0 480 * @toRems 0 480 * @toRems;
+  text-align: center;
 }
 
 main {
   .Row;
-  min-height: 500 * @toRems;
+}
+
+section {
+  .Cols ( @colspan: 3; @padding: 10 * @toRems 20 * @toRems; @gutter: 1;);
+  background-color: @background;
 }
 
 article {
-  .Cols(
-    @colspan: 3;
-    @padding: 10 * @toRems 20 * @toRems;
-    @gutter: 1;
-    @margin-top: 20 * @toRems;
-    @margin-bottom: 30 * @toRems;
-  );
-  min-height: 500 * @toRems;
+  .Cols( @colspan: 1; @total_cols: 3; @padding: 0 20 * @toRems 20 * @toRems 20 * @toRems; @gutter: 2; @margin-bottom: 30 * @toRems; );
   background-color: @base;
+  &:nth-of-type(3n) {
+    margin-right: 0
+  }
 }
 
 aside {
-  .Cols(
-    @colspan: 1;
-    @padding: 10 * @toRems 20 * @toRems;
-    @gutter: 1;
-    @edge: true;
-    @margin-top: 20 * @toRems;
-    @margin-bottom: 30 * @toRems;
-  );
+  .Cols( @colspan: 1; @padding: 10 * @toRems 20 * @toRems; @gutter: 1; @edge: true; @margin-top: 75 * @toRems; );
   min-height: 500 * @toRems;
   background-color: darken(@base, 5%);
+}
+
+hr.radial {
+  border: 0;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(248, 248, 240, 75), rgba(0, 0, 0, 0));
 }
