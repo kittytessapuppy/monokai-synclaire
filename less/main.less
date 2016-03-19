@@ -52,6 +52,8 @@
   margin: @margin-top 0 @margin-bottom 0;
 }
 
+// Styling
+
 * {
   box-sizing: border-box;
 }
@@ -59,16 +61,55 @@
 body {
   background-color: @background;
   color: @primary;
+  margin: 0;
 }
 
 h1 {
   color: @brand;
+  font-size: 32 * @toEms;
+}
+
+nav {
+  .Row ( @padding: 10 * @toRems; @margin: 0 auto; );
+  background-color: darken(@background, 10%);
+  position: fixed;
+  top: 0 * @toRems;
+}
+
+navbar.navbar-header {
+  color: @highlight;
+  font-size: 22 * @toEms;
+  font-weight: bolder;
+  font-style: oblique;
+  display: inline;
+  float: left;
+  line-height: 8 * @toEms;
+}
+
+navbar.navbar-nav {
+  color: @primary;
+  display: inline;
+  float: left;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 15 * @toRems;
+    text-align: center;
+  }
+  li {
+    display: inline;
+    padding: 15 * @toRems;
+  }
+  a {
+    font-size: 22 * @toEms;
+    color: @brand;
+  }
 }
 
 header,
 footer {
-  .Row ( @padding: 20 * @toRems; @margin: 10 * @toRems auto; );
-  background-color: darken(@background, .5%);;
+  .Row ( @padding: 20 * @toRems; @margin: 60 * @toRems auto; );
+  background-color: darken(@background, .5%);
   min-height: 100 * @toRems;
 }
 
@@ -107,6 +148,9 @@ main {
 section {
   .Cols ( @colspan: 3; @padding: 10 * @toRems 20 * @toRems; @gutter: 1;);
   background-color: @background;
+  h1 {
+    font-size: 28 * @toEms;
+  }
 }
 
 article {
@@ -115,12 +159,18 @@ article {
   &:nth-of-type(3n) {
     margin-right: 0
   }
+  h1 {
+    font-size: 26 * @toEms;
+  }
 }
 
 aside {
   .Cols( @colspan: 1; @padding: 10 * @toRems 20 * @toRems; @gutter: 1; @edge: true; @margin-top: 75 * @toRems; );
   min-height: 500 * @toRems;
   background-color: darken(@base, 5%);
+  h1 {
+    font-size: 22 * @toEms;
+  }
 }
 
 hr.radial {

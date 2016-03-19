@@ -4,15 +4,62 @@
 body {
   background-color: #272822;
   color: #F8F8F0;
+  margin: 0;
 }
 h1 {
+  color: #F92672;
+  font-size: 2em;
+}
+nav {
+  max-width: 120rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.625rem;
+  background-color: #0c0c0b;
+  position: fixed;
+  top: 0rem;
+}
+nav:before,
+nav:after {
+  content: "";
+  display: table;
+}
+nav:after {
+  clear: both;
+}
+navbar.navbar-header {
+  color: #FD971F;
+  font-size: 1.375em;
+  font-weight: bolder;
+  font-style: oblique;
+  display: inline;
+  float: left;
+  line-height: 0.5em;
+}
+navbar.navbar-nav {
+  color: #F8F8F0;
+  display: inline;
+  float: left;
+}
+navbar.navbar-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.9375rem;
+  text-align: center;
+}
+navbar.navbar-nav li {
+  display: inline;
+  padding: 0.9375rem;
+}
+navbar.navbar-nav a {
+  font-size: 1.375em;
   color: #F92672;
 }
 header,
 footer {
   max-width: 120rem;
   width: 100%;
-  margin: 0.625rem auto;
+  margin: 3.75rem auto;
   padding: 1.25rem;
   background-color: #262721;
   min-height: 6.25rem;
@@ -83,6 +130,9 @@ section {
   margin: 0 1% 0 0;
   background-color: #272822;
 }
+section h1 {
+  font-size: 1.75em;
+}
 article {
   width: 32%;
   float: left;
@@ -93,6 +143,9 @@ article {
 article:nth-of-type(3n) {
   margin-right: 0;
 }
+article h1 {
+  font-size: 1.625em;
+}
 aside {
   width: 24.25%;
   float: left;
@@ -100,6 +153,9 @@ aside {
   margin: 4.6875rem 0 0 0;
   min-height: 31.25rem;
   background-color: #3b3a32;
+}
+aside h1 {
+  font-size: 1.375em;
 }
 hr.radial {
   border: 0;
